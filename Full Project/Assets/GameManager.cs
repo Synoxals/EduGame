@@ -12,17 +12,16 @@ public class GameManager : MonoBehaviour
 
     int a;
 
-
     void Start()
     {
         Vector3 correctSpawnPosition = new Vector3();
-        correctSpawnPosition.y = -1;
+        correctSpawnPosition.y = -3;
 
         Vector3 falseSpawnPositionB = new Vector3();
-        falseSpawnPositionB.y = -1;
+        falseSpawnPositionB.y = -3;
 
         Vector3 falseSpawnPositionC = new Vector3();
-        falseSpawnPositionC.y = -1;
+        falseSpawnPositionC.y = -3;
 
 
         for (int i = 0; i < platformLayerCount; i++)
@@ -30,7 +29,7 @@ public class GameManager : MonoBehaviour
             correctSpawnPosition.y = correctSpawnPosition.y + 5;
             falseSpawnPositionB.y = falseSpawnPositionB.y + 5;
             falseSpawnPositionC.y = falseSpawnPositionC.y + 5;
-            a = Random.Range(0, 2);
+            a = Random.Range(0, 3);
 
             if (a == 0)
             {
