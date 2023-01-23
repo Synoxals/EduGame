@@ -9589,7 +9589,7 @@ MonoBehaviour:
   CorrectPlatformPrefab: {fileID: 1918373612}
   FalsePlatformPrefab: {fileID: 6449581657395162548, guid: 6f93e70caae85b64698adc39d31f873e, type: 3}
   Clouds: {fileID: 1768855895}
-  platformLayerCount: 300
+  platformLayerCount: 2
 --- !u!4 &917486989
 Transform:
   m_ObjectHideFlags: 0

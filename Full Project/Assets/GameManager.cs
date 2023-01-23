@@ -10,21 +10,61 @@ public class GameManager : MonoBehaviour
 
     public int platformLayerCount;
 
+    int plusLayerCount;
+
+    bool PlatformUpdate;
+
+    GameObject NextPlatformA;
+    GameObject NextPlatformB;
+    GameObject NextPlatformC;
+
+
+    Vector3 correctSpawnPosition = new Vector3();
+
+    Vector3 falseSpawnPositionB = new Vector3();
+
+    Vector3 falseSpawnPositionC = new Vector3();
+
+
     int a;
+
 
     void Start()
     {
-        Vector3 correctSpawnPosition = new Vector3();
+        PlatformUpdate = false;
+
         correctSpawnPosition.y = -3;
 
-        Vector3 falseSpawnPositionB = new Vector3();
+
         falseSpawnPositionB.y = -3;
 
-        Vector3 falseSpawnPositionC = new Vector3();
+
         falseSpawnPositionC.y = -3;
 
 
-        for (int i = 0; i < platformLayerCount; i++)
+        plusLayerCount = platformLayerCount + 2;
+    }
+
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            PlatformUpdate = true;
+            if (PlatformUpdate == true)
+            {
+                GameObject CurrentPlatformA = NextPlatformA;
+                GameObject CurrentPlatformB = NextPlatformB;
+                GameObject CurrentPlatformC = NextPlatformC;
+                platformLayerCount++;
+                plusLayerCount++;
+                Debug.Log(platformLayerCount);
+            }
+        }
+
+
+        
+        if (platformLayerCount + 1 == plusLayerCount)
         {
             correctSpawnPosition.y = correctSpawnPosition.y + 5;
             falseSpawnPositionB.y = falseSpawnPositionB.y + 5;
@@ -49,9 +89,10 @@ public class GameManager : MonoBehaviour
                 falseSpawnPositionB.x = 1.75f;
                 falseSpawnPositionC.x = 3.5f;
             }
-            GameObject NextPlatformA = Instantiate(CorrectPlatformPrefab, correctSpawnPosition, Quaternion.identity, Clouds);
-            GameObject NextPlatformB = Instantiate(FalsePlatformPrefab, falseSpawnPositionB, Quaternion.identity, Clouds);
-            GameObject NextPlatformC = Instantiate(FalsePlatformPrefab, falseSpawnPositionC, Quaternion.identity, Clouds);
+            NextPlatformA = Instantiate(CorrectPlatformPrefab, correctSpawnPosition, Quaternion.identity, Clouds);
+            NextPlatformB = Instantiate(FalsePlatformPrefab, falseSpawnPositionB, Quaternion.identity, Clouds);
+            NextPlatformC = Instantiate(FalsePlatformPrefab, falseSpawnPositionC, Quaternion.identity, Clouds);
+
 
 
         }

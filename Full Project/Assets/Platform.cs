@@ -8,6 +8,8 @@ public class Platform : MonoBehaviour
 {
     public float jumpForce = 5f;
 
+    public float waitTime = 0.5f;
+
     PlayerController playerController;
 
 
@@ -15,12 +17,15 @@ public class Platform : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            jumpForce = 12f;
+            StartCoroutine(waiter());
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-
+        if (jumpForce == 0)
+        {
+            jumpForce = 5f;
+        }
         
         if (collision.relativeVelocity.y <= 0f);
         {
@@ -35,8 +40,19 @@ public class Platform : MonoBehaviour
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
-        jumpForce = 5f;
-        Debug.Log("hi");
+     
     }
+
+
+
+    IEnumerator waiter()
+    {
+
+        jumpForce = 12f;
+        yield return new WaitForSeconds(waitTime);
+        jumpForce = 0f;
+    }
+
+
 
 }
