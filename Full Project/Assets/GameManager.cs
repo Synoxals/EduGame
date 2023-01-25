@@ -6,8 +6,9 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [Header("Prefabs")]
-    public GameObject CorrectPlatformPrefab;
-    public GameObject FalsePlatformPrefab;
+    public GameObject PlatformA;
+    public GameObject PlatformB;
+    public GameObject PlatformC;
     public Transform Clouds;
 
     [Header("Misc")]
@@ -17,22 +18,15 @@ public class GameManager : MonoBehaviour
 
     int a;
 
+    int i;
+
+    int counter;
+
     GameObject NextPlatformA;
     GameObject NextPlatformB;
     GameObject NextPlatformC;
 
-    GameObject CurrentPlatformA;
-    GameObject CurrentPlatformB;
-    GameObject CurrentPlatformC;
-
-    [Header("First Platforms")]
-    public GameObject FirstPlatformA;
-    public GameObject FirstPlatformB;
-    public GameObject FirstPlatformC;
-
-    GameObject LastPlatformA;
-    GameObject LastPlatformB;
-    GameObject LastPlatformC;
+    public GameObject[] cloudArray;
 
     Vector3 correctSpawnPosition = new Vector3();
     Vector3 falseSpawnPositionB = new Vector3();
@@ -45,9 +39,9 @@ public class GameManager : MonoBehaviour
         falseSpawnPositionC.y = -3;
         plusLayerCount = platformLayerCount + 1;
 
-        CurrentPlatformA = FirstPlatformA;
-        CurrentPlatformB = FirstPlatformB;
-        CurrentPlatformB = FirstPlatformC;
+        i = 0;
+
+        counter = 0;
     }
 
 
@@ -79,12 +73,22 @@ public class GameManager : MonoBehaviour
                 falseSpawnPositionC.x = 3.5f;
             }
             // Creates a layer of new clouds.
-            NextPlatformA = Instantiate(CorrectPlatformPrefab, correctSpawnPosition, Quaternion.identity, Clouds);
-            NextPlatformB = Instantiate(FalsePlatformPrefab, falseSpawnPositionB, Quaternion.identity, Clouds);
-            NextPlatformC = Instantiate(FalsePlatformPrefab, falseSpawnPositionC, Quaternion.identity, Clouds);
+            NextPlatformA = Instantiate(PlatformA, correctSpawnPosition, Quaternion.identity, Clouds);
+            i++;
+            cloudArray[i] = NextPlatformA;
+            NextPlatformB = Instantiate(PlatformB, falseSpawnPositionB, Quaternion.identity, Clouds);
+            i++;
+            cloudArray[i] = NextPlatformB;
+            NextPlatformC = Instantiate(PlatformC, falseSpawnPositionC, Quaternion.identity, Clouds);
+            i++;
+            if (i <= 6)
+            {
+                counter = counter + 3;
+            }
+
+            cloudArray[i] = NextPlatformC;
             Debug.Log("New Clouds Created");
             platformLayerCount++;
-            Debug.Log("PlatLayerCount increased to: " + platformLayerCount);
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -93,22 +97,15 @@ public class GameManager : MonoBehaviour
     }
     IEnumerator waiter()
     {
-
         plusLayerCount++;
-        Debug.Log("PlusLayerCount increased to: " + plusLayerCount);
         
-        LastPlatformA = CurrentPlatformA;
-        LastPlatformB = CurrentPlatformB;
-        LastPlatformC = CurrentPlatformC;
+        yield return new WaitForSeconds(1.5f);
 
-        yield return new WaitForSeconds(3);
-        
-        CurrentPlatformA = NextPlatformA;
-        CurrentPlatformB = NextPlatformB;
-        CurrentPlatformC = NextPlatformC;
-
-        Destroy(LastPlatformA);
-        Destroy(LastPlatformB);
-        Destroy(LastPlatformC);
+        if (counter == 6)
+        {
+            Destroy(cloudArray[i - 2 - counter]);
+            Destroy(cloudArray[i - 1 - counter]);
+            Destroy(cloudArray[i - counter]);
+        }
     }
 }
