@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3351692902537519519}
   - component: {fileID: 5809691612925839730}
   m_Layer: 0
-  m_Name: CorrectCloud (2)
+  m_Name: CorrectCloud
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

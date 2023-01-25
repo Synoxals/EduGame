@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &20111202 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3470272802229135, guid: 43372182386c4664abcd513f821220ef, type: 3}
+  m_PrefabInstance: {fileID: 593476636}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &294782686
 GameObject:
   m_ObjectHideFlags: 0
@@ -170,6 +175,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &362581550 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3470272802229135, guid: 43372182386c4664abcd513f821220ef, type: 3}
+  m_PrefabInstance: {fileID: 396652895}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &396652895
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9590,6 +9600,9 @@ MonoBehaviour:
   FalsePlatformPrefab: {fileID: 6449581657395162548, guid: 6f93e70caae85b64698adc39d31f873e, type: 3}
   Clouds: {fileID: 1768855895}
   platformLayerCount: 2
+  FirstPlatformA: {fileID: 1918373612}
+  FirstPlatformB: {fileID: 362581550}
+  FirstPlatformC: {fileID: 20111202}
 --- !u!4 &917486989
 Transform:
   m_ObjectHideFlags: 0
