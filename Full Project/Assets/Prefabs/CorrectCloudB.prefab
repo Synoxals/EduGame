@@ -92,6 +92,7 @@ GameObject:
   - component: {fileID: 4823381777117112336}
   - component: {fileID: 3347668113361449619}
   - component: {fileID: 3725190018709714433}
+  - component: {fileID: 1495979418148523499}
   m_Layer: 0
   m_Name: CorrectCloudB
   m_TagString: Untagged
@@ -189,7 +190,20 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5251857500290221014}
-  m_Enabled: 1
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45875dc243e237b4e8742865ecec4058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dontMoveWithParent: 1
+--- !u!114 &1495979418148523499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5251857500290221014}
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 45875dc243e237b4e8742865ecec4058, type: 3}
   m_Name: 

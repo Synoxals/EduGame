@@ -49,9 +49,9 @@ public class GameManager : MonoBehaviour
     {     
         if (platformLayerCount < plusLayerCount)
         {
-            correctSpawnPosition.y = correctSpawnPosition.y + 5;
-            falseSpawnPositionB.y = falseSpawnPositionB.y + 5;
-            falseSpawnPositionC.y = falseSpawnPositionC.y + 5;
+            correctSpawnPosition.y = correctSpawnPosition.y + 10;
+            falseSpawnPositionB.y = falseSpawnPositionB.y + 10;
+            falseSpawnPositionC.y = falseSpawnPositionC.y + 10;
             a = Random.Range(0, 3);
 
             if (a == 0)
